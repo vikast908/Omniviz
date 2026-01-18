@@ -32,6 +32,26 @@ import RoboticsConcept from './components/concepts/RoboticsConcept'
 import FunctionalProgrammingConcept from './components/concepts/FunctionalProgrammingConcept'
 import TypeSystemsConcept from './components/concepts/TypeSystemsConcept'
 import APIDesignConcept from './components/concepts/APIDesignConcept'
+import HashingConcept from './components/concepts/HashingConcept'
+import ParsingConcept from './components/concepts/ParsingConcept'
+import BinaryOperationsConcept from './components/concepts/BinaryOperationsConcept'
+import StateMachinesConcept from './components/concepts/StateMachinesConcept'
+import WebSocketsConcept from './components/concepts/WebSocketsConcept'
+import AuthenticationConcept from './components/concepts/AuthenticationConcept'
+import CompressionConcept from './components/concepts/CompressionConcept'
+import SearchAlgorithmsConcept from './components/concepts/SearchAlgorithmsConcept'
+import CachingConcept from './components/concepts/CachingConcept'
+import ContainerizationConcept from './components/concepts/ContainerizationConcept'
+import DevOpsConcept from './components/concepts/DevOpsConcept'
+import MicroservicesConcept from './components/concepts/MicroservicesConcept'
+import EventDrivenConcept from './components/concepts/EventDrivenConcept'
+import OOPConcept from './components/concepts/OOPConcept'
+import RecursionConcept from './components/concepts/RecursionConcept'
+import GraphTheoryConcept from './components/concepts/GraphTheoryConcept'
+import DesignPatternsConcept from './components/concepts/DesignPatternsConcept'
+import TestingConcept from './components/concepts/TestingConcept'
+import MemoryManagementConcept from './components/concepts/MemoryManagementConcept'
+import ConcurrencyConcept from './components/concepts/ConcurrencyConcept'
 
 function App() {
   const { selectedConcept, theme } = useStore()
@@ -108,6 +128,46 @@ function App() {
         return <TypeSystemsConcept key="type-systems" />
       case 'api-design':
         return <APIDesignConcept key="api-design" />
+      case 'hashing':
+        return <HashingConcept key="hashing" />
+      case 'parsing':
+        return <ParsingConcept key="parsing" />
+      case 'binary-operations':
+        return <BinaryOperationsConcept key="binary-operations" />
+      case 'state-machines':
+        return <StateMachinesConcept key="state-machines" />
+      case 'websockets':
+        return <WebSocketsConcept key="websockets" />
+      case 'authentication':
+        return <AuthenticationConcept key="authentication" />
+      case 'compression':
+        return <CompressionConcept key="compression" />
+      case 'search-algorithms':
+        return <SearchAlgorithmsConcept key="search-algorithms" />
+      case 'caching':
+        return <CachingConcept key="caching" />
+      case 'containerization':
+        return <ContainerizationConcept key="containerization" />
+      case 'devops':
+        return <DevOpsConcept key="devops" />
+      case 'microservices':
+        return <MicroservicesConcept key="microservices" />
+      case 'event-driven':
+        return <EventDrivenConcept key="event-driven" />
+      case 'oop':
+        return <OOPConcept key="oop" />
+      case 'recursion':
+        return <RecursionConcept key="recursion" />
+      case 'graph-theory':
+        return <GraphTheoryConcept key="graph-theory" />
+      case 'design-patterns':
+        return <DesignPatternsConcept key="design-patterns" />
+      case 'testing':
+        return <TestingConcept key="testing" />
+      case 'memory-management':
+        return <MemoryManagementConcept key="memory-management" />
+      case 'concurrency':
+        return <ConcurrencyConcept key="concurrency" />
       default:
         return <LandingPage key="landing" />
     }

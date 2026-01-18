@@ -397,6 +397,246 @@ function LandingPage() {
       color: '#059669',
       gradient: 'from-emerald-600 to-teal-600',
     },
+    {
+      id: 'hashing',
+      title: 'Hashing',
+      subtitle: 'Maps keys to values efficiently',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
+        </svg>
+      ),
+      color: '#8b5cf6',
+      gradient: 'from-violet-500 to-purple-600',
+    },
+    {
+      id: 'parsing',
+      title: 'Parsing',
+      subtitle: 'Analyzing text structure',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      ),
+      color: '#0ea5e9',
+      gradient: 'from-sky-500 to-blue-500',
+    },
+    {
+      id: 'binary-operations',
+      title: 'Binary Operations',
+      subtitle: 'Bit manipulation magic',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+        </svg>
+      ),
+      color: '#10b981',
+      gradient: 'from-emerald-500 to-green-500',
+    },
+    {
+      id: 'state-machines',
+      title: 'State Machines',
+      subtitle: 'Modeling system states',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
+        </svg>
+      ),
+      color: '#f97316',
+      gradient: 'from-orange-500 to-red-500',
+    },
+    {
+      id: 'websockets',
+      title: 'WebSockets',
+      subtitle: 'Real-time communication',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      color: '#eab308',
+      gradient: 'from-yellow-500 to-orange-500',
+    },
+    {
+      id: 'authentication',
+      title: 'Authentication',
+      subtitle: 'Verifying identity securely',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      ),
+      color: '#ef4444',
+      gradient: 'from-red-500 to-pink-500',
+    },
+    {
+      id: 'compression',
+      title: 'Data Compression',
+      subtitle: 'Making files smaller',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+        </svg>
+      ),
+      color: '#6366f1',
+      gradient: 'from-indigo-500 to-violet-500',
+    },
+    {
+      id: 'search-algorithms',
+      title: 'Search Algorithms',
+      subtitle: 'Finding data efficiently',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+        </svg>
+      ),
+      color: '#84cc16',
+      gradient: 'from-lime-500 to-green-500',
+    },
+    {
+      id: 'caching',
+      title: 'Caching',
+      subtitle: 'Speeding up access',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      color: '#f59e0b',
+      gradient: 'from-amber-500 to-yellow-500',
+    },
+    {
+      id: 'containerization',
+      title: 'Containerization',
+      subtitle: 'Packaging applications',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+      ),
+      color: '#0ea5e9',
+      gradient: 'from-sky-500 to-cyan-500',
+    },
+    {
+      id: 'devops',
+      title: 'DevOps',
+      subtitle: 'Development & Operations',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      ),
+      color: '#d946ef',
+      gradient: 'from-fuchsia-500 to-pink-500',
+    },
+    {
+      id: 'microservices',
+      title: 'Microservices',
+      subtitle: 'Decoupled architecture',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      ),
+      color: '#06b6d4',
+      gradient: 'from-cyan-500 to-teal-500',
+    },
+    {
+      id: 'event-driven',
+      title: 'Event-Driven',
+      subtitle: 'Reacting to events',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+        </svg>
+      ),
+      color: '#f97316',
+      gradient: 'from-orange-500 to-red-500',
+    },
+    {
+      id: 'oop',
+      title: 'Object-Oriented',
+      subtitle: 'Objects and classes',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+      ),
+      color: '#6366f1',
+      gradient: 'from-indigo-500 to-purple-500',
+    },
+    {
+      id: 'recursion',
+      title: 'Recursion',
+      subtitle: 'Functions calling themselves',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      ),
+      color: '#ec4899',
+      gradient: 'from-pink-500 to-rose-500',
+    },
+    {
+      id: 'graph-theory',
+      title: 'Graph Theory',
+      subtitle: 'Nodes and edges',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 12l3-3 3 3 4-4M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z" />
+        </svg>
+      ),
+      color: '#8b5cf6',
+      gradient: 'from-violet-500 to-purple-500',
+    },
+    {
+      id: 'design-patterns',
+      title: 'Design Patterns',
+      subtitle: 'Reusable solutions',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" />
+        </svg>
+      ),
+      color: '#64748b',
+      gradient: 'from-slate-500 to-gray-600',
+    },
+    {
+      id: 'testing',
+      title: 'Testing',
+      subtitle: 'Ensuring code quality',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      ),
+      color: '#10b981',
+      gradient: 'from-emerald-500 to-green-500',
+    },
+    {
+      id: 'memory-management',
+      title: 'Memory Management',
+      subtitle: 'Allocating resources',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+        </svg>
+      ),
+      color: '#ef4444',
+      gradient: 'from-red-500 to-orange-500',
+    },
+    {
+      id: 'concurrency',
+      title: 'Concurrency',
+      subtitle: 'Doing things at once',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+        </svg>
+      ),
+      color: '#06b6d4',
+      gradient: 'from-cyan-500 to-blue-500',
+    },
   ]
 
   return (
