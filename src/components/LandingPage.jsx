@@ -1,0 +1,338 @@
+import { motion } from 'framer-motion'
+import { useStore } from '../store/useStore'
+
+function ThemeToggle() {
+  const { theme, toggleTheme } = useStore()
+
+  return (
+    <motion.button
+      initial={{ opacity: 0, scale: 0.9 }}
+      animate={{ opacity: 1, scale: 1 }}
+      onClick={toggleTheme}
+      className="relative w-14 h-7 rounded-full bg-omniviz-surface border border-omniviz-border transition-colors duration-300 hover:border-omniviz-accent/50"
+      aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
+    >
+      <motion.div
+        className="absolute top-0.5 w-6 h-6 rounded-full bg-omniviz-accent flex items-center justify-center"
+        animate={{ left: theme === 'dark' ? '2px' : '26px' }}
+        transition={{ type: 'spring', stiffness: 500, damping: 30 }}
+      >
+        {theme === 'dark' ? (
+          <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+          </svg>
+        ) : (
+          <svg className="w-3.5 h-3.5 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
+          </svg>
+        )}
+      </motion.div>
+    </motion.button>
+  )
+}
+
+function LandingPage() {
+  const { setSelectedConcept, theme } = useStore()
+
+  const concepts = [
+    {
+      id: 'llm',
+      title: 'Large Language Models',
+      subtitle: 'How AI understands and generates text',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+        </svg>
+      ),
+      color: '#7c3aed',
+      gradient: 'from-violet-500 to-purple-600',
+    },
+    {
+      id: 'neural-networks',
+      title: 'Neural Networks',
+      subtitle: 'The building blocks of deep learning',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      ),
+      color: '#3b82f6',
+      gradient: 'from-blue-500 to-cyan-500',
+    },
+    {
+      id: 'cryptography',
+      title: 'Cryptography',
+      subtitle: 'The science of secure communication',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+        </svg>
+      ),
+      color: '#22c55e',
+      gradient: 'from-green-500 to-emerald-500',
+    },
+    {
+      id: 'databases',
+      title: 'Database Systems',
+      subtitle: 'How data is stored and retrieved',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+        </svg>
+      ),
+      color: '#f97316',
+      gradient: 'from-orange-500 to-amber-500',
+    },
+    {
+      id: 'compilers',
+      title: 'Compilers',
+      subtitle: 'From code to machine instructions',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+        </svg>
+      ),
+      color: '#ec4899',
+      gradient: 'from-pink-500 to-rose-500',
+    },
+    {
+      id: 'quantum',
+      title: 'Quantum Computing',
+      subtitle: 'Computing with quantum mechanics',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+        </svg>
+      ),
+      color: '#14b8a6',
+      gradient: 'from-teal-500 to-cyan-500',
+    },
+    {
+      id: 'software-architecture',
+      title: 'Software Architecture',
+      subtitle: 'Frontend, backend, databases & infrastructure',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+        </svg>
+      ),
+      color: '#6366f1',
+      gradient: 'from-indigo-500 to-purple-500',
+    },
+    {
+      id: 'operating-systems',
+      title: 'Operating Systems',
+      subtitle: 'Process scheduling, memory & file systems',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+        </svg>
+      ),
+      color: '#ef4444',
+      gradient: 'from-red-500 to-orange-500',
+    },
+    {
+      id: 'distributed-systems',
+      title: 'Distributed Systems',
+      subtitle: 'Consensus, replication & fault tolerance',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+        </svg>
+      ),
+      color: '#06b6d4',
+      gradient: 'from-cyan-500 to-blue-500',
+    },
+    {
+      id: 'computer-graphics',
+      title: 'Computer Graphics',
+      subtitle: 'Rendering, transformations & shading',
+      icon: (
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+      ),
+      color: '#ec4899',
+      gradient: 'from-pink-500 to-purple-500',
+    },
+  ]
+
+  return (
+    <div className="min-h-screen bg-omniviz-bg transition-colors duration-300">
+      {/* Header */}
+      <header className="sticky top-0 z-50 bg-omniviz-bg/80 backdrop-blur-lg border-b border-omniviz-border">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-3"
+          >
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center">
+              <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+              </svg>
+            </div>
+            <span className="text-xl font-bold text-omniviz-text">OmniViz</span>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={{ opacity: 1, x: 0 }}
+            className="flex items-center gap-4"
+          >
+            <ThemeToggle />
+          </motion.div>
+        </div>
+      </header>
+
+      {/* Hero Section */}
+      <section className="relative overflow-hidden">
+        {/* Background decoration */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
+          <div className={`absolute top-20 left-1/4 w-96 h-96 rounded-full blur-3xl ${
+            theme === 'dark' ? 'bg-violet-500/10' : 'bg-violet-500/5'
+          }`} />
+          <div className={`absolute top-40 right-1/4 w-96 h-96 rounded-full blur-3xl ${
+            theme === 'dark' ? 'bg-blue-500/10' : 'bg-blue-500/5'
+          }`} />
+        </div>
+
+        <div className="relative max-w-6xl mx-auto px-6 pt-20 pb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ delay: 0.1 }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-omniviz-accent/10 border border-omniviz-accent/30 mb-8"
+            >
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-omniviz-accent opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-omniviz-accent"></span>
+              </span>
+              <span className="text-sm font-medium text-omniviz-accent">Interactive Visual Learning</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="text-5xl md:text-7xl font-bold mb-6 leading-tight"
+            >
+              <span className="bg-gradient-to-r from-omniviz-accent via-purple-500 to-blue-500 bg-clip-text text-transparent">
+                Understand Complex
+              </span>
+              <br />
+              <span className="text-omniviz-text">Concepts Visually</span>
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.6 }}
+              className="text-xl md:text-2xl text-omniviz-text-muted max-w-3xl mx-auto mb-10"
+            >
+              Dive deep into computer science and engineering topics through
+              beautiful, interactive visualizations that make learning intuitive.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="flex flex-wrap items-center justify-center gap-6 text-sm"
+            >
+              {[
+                { icon: '🎯', text: 'Step-by-step explanations' },
+                { icon: '🔬', text: 'Interactive demos' },
+                { icon: '📚', text: 'In-depth coverage' },
+              ].map((item, i) => (
+                <div key={i} className="flex items-center gap-2 px-4 py-2 rounded-lg bg-omniviz-surface border border-omniviz-border">
+                  <span className="text-lg">{item.icon}</span>
+                  <span className="text-omniviz-text-muted">{item.text}</span>
+                </div>
+              ))}
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Concepts Grid */}
+      <section className="max-w-6xl mx-auto px-6 pb-20">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5 }}
+          className="mb-10"
+        >
+          <h2 className="text-2xl font-bold text-omniviz-text mb-2">Explore Topics</h2>
+          <p className="text-omniviz-text-muted">Choose a concept to start learning</p>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {concepts.map((concept, i) => (
+            <motion.button
+              key={concept.id}
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.5 + i * 0.1, duration: 0.4 }}
+              onClick={() => setSelectedConcept(concept.id)}
+              className="group relative text-left p-6 rounded-2xl bg-omniviz-surface border border-omniviz-border hover:border-omniviz-accent/50 transition-all duration-300 overflow-hidden"
+            >
+              {/* Hover gradient background */}
+              <div
+                className={`absolute inset-0 bg-gradient-to-br ${concept.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`}
+              />
+
+              {/* Content */}
+              <div className="relative">
+                {/* Icon with gradient background */}
+                <div
+                  className={`w-14 h-14 rounded-xl bg-gradient-to-br ${concept.gradient} flex items-center justify-center mb-4 text-white transition-transform duration-300 group-hover:scale-110`}
+                >
+                  {concept.icon}
+                </div>
+
+                {/* Title & Subtitle */}
+                <h3 className="text-lg font-semibold text-omniviz-text mb-2 group-hover:text-omniviz-accent transition-colors">
+                  {concept.title}
+                </h3>
+                <p className="text-sm text-omniviz-text-muted mb-4">
+                  {concept.subtitle}
+                </p>
+
+                {/* Arrow indicator */}
+                <div className="flex items-center gap-2 text-omniviz-accent opacity-0 group-hover:opacity-100 transition-all transform translate-x-0 group-hover:translate-x-2">
+                  <span className="text-sm font-medium">Start Learning</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Decorative corner */}
+              <div
+                className={`absolute -bottom-8 -right-8 w-24 h-24 rounded-full bg-gradient-to-br ${concept.gradient} opacity-10 group-hover:opacity-20 transition-opacity`}
+              />
+            </motion.button>
+          ))}
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-omniviz-border py-8">
+        <div className="max-w-6xl mx-auto px-6 text-center">
+          <p className="text-sm text-omniviz-text-muted">
+            Built for visual learners who want to understand how things really work.
+          </p>
+        </div>
+      </footer>
+    </div>
+  )
+}
+
+export default LandingPage

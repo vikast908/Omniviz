@@ -1,0 +1,97 @@
+# Functional Specification: OmniViz (LLM Learning Module)
+
+## 1. Executive Summary
+**Product Name:** OmniViz
+**Core Concept:** A "Google Earth" for complex concepts. Users learn by exploring a system from a macro (surface) level down to a micro (mathematical) level using a continuous zoom interface.
+**Pilot Module:** Large Language Models (LLMs).
+**Platform:** Web (Desktop optimized, Tablet compatible).
+
+---
+
+## 2. Core User Experience (UX)
+The application relies on two primary interaction models:
+1.  **The Semantic Zoom:** As the user scrolls (zooms in), the visual representation of the system changes completely. It does not just get bigger; it reveals deeper layers of abstraction.
+2.  **Interactive Simulation:** At every level, the system is "live." Changing an input at Level 1 immediately updates the math at Level 4.
+
+---
+
+## 3. Functional Requirements by Zoom Level (LOD)
+
+### Level 0: The User Surface (Zoom 1x)
+**Goal:** Establish the familiar "Input -> Output" mental model.
+* **Visual Interface:**
+    * Minimalist chat window centered on a blank canvas.
+    * Simple "Send" button.
+* **User Interactions:**
+    * **Input:** User types a custom prompt (e.g., "The quick brown fox").
+    * **Action:** User presses Enter.
+    * **Feedback:** The system streams a text response.
+* **Key Insight:** "This looks like magic. How does it work?"
+
+### Level 1: The Data Pipeline (Zoom 2x - 5x)
+**Goal:** Visualize the transformation of text into numbers and back.
+* **Visual Interface:**
+    * The chat box dissolves into a horizontal flow diagram.
+    * **Stage A (Tokenizer):** Input text is broken into colored chunks.
+    * **Stage B (Token IDs):** Colored chunks flip to reveal integer arrays (e.g., `[2044, 5501]`).
+    * **Stage C (Embedding):** Integers float into a 3D point cloud.
+    * **Stage D (Transformer Stack):** A stack of glowing blocks processing the data.
+    * **Stage E (De-tokenizer):** The output probability distribution (bar chart of top 5 likely next words).
+* **User Interactions:**
+    * **Hover:** Hovering over a word in the input highlights its corresponding Token ID and Vector.
+    * **Edit:** Changing a word in the input instantly changes the Token IDs.
+
+### Level 2: The Model Architecture (Zoom 5x - 15x)
+**Goal:** Demystify the "Transformer" block.
+* **Visual Interface:**
+    * User zooms into the "Transformer Stack."
+    * View shifts to an exploded view of a single GPT layer.
+    * **Components Visible:** Multi-Head Attention, Feed-Forward Network (MLP), Layer Normalization.
+* **User Interactions:**
+    * **Attention Lines:** Toggle a "Show Connections" switch. Curves are drawn between tokens to show context (e.g., "Bank" connects strongly to "River" or "Money" depending on context).
+    * **Layer Slider:** A slider to move between Layer 1 (early grammar features) and Layer 12 (high-level semantic concepts).
+
+### Level 3: The Mathematical Engine (Zoom 15x+)
+**Goal:** Visualize the matrix operations (The "Brain").
+* **Visual Interface:**
+    * User zooms into the "Multi-Head Attention" node.
+    * **The Matrix View:** Displays the Query (Q), Key (K), and Value (V) matrices.
+    * **The Heatmap:** A grid showing the dot product scores (Attention Pattern).
+* **User Interactions:**
+    * **Weight Tweak:** Users can manually nudge a value in the Q matrix.
+    * **Real-time Result:** The Attention Heatmap updates immediately, showing how the model's focus shifts.
+
+---
+
+## 4. Global Interface Features
+These controls remain visible regardless of the zoom level.
+
+### The "HUD" (Heads-Up Display)
+* **Zoom Indicator:** A breadcrumb trail showing current depth (e.g., `Overview > Pipeline > Layer > Math`).
+* **Concept Sidebar:** A collapsible panel on the right.
+    * Updates dynamically based on zoom level.
+    * Provides brief text explanations (e.g., "What is a Token?").
+    * Includes a "Reset View" button.
+
+### The Simulation Bar
+* **Model Selector:** Dropdown to switch between `GPT-2 Small` (fast) and `BERT` (encoder-only).
+* **Temperature Control:** Slider (0.0 - 1.0) to control randomness of the output generation.
+
+---
+
+## 5. Technical Functional Requirements
+* **In-Browser Inference:** The app must not rely on a backend API for every keystroke. It must use WebGPU/WASM to run the model locally on the user's device for instant feedback.
+* **Performance:**
+    * Zoom transitions must maintain 60 FPS.
+    * Matrix visualizations must handle arrays of at least 1024 points without lag.
+* **Responsiveness:**
+    * Desktop: Full scroll-wheel zoom support.
+    * Tablet: Pinch-to-zoom support.
+
+---
+
+## 6. Success Criteria (User Learning Outcomes)
+After using the tool, a user should be able to:
+1.  Explain that LLMs do not "read" text, they process numbers (tokens).
+2.  Visualize "Attention" as words looking at other words to understand context.
+3.  Understand that the output is a probability game, not a guaranteed fact.
