@@ -41,6 +41,11 @@ function App() {
     document.documentElement.setAttribute('data-theme', theme)
   }, [theme])
 
+  // Scroll to top when concept changes
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [selectedConcept])
+
   const renderConcept = () => {
     switch (selectedConcept) {
       case 'llm':
